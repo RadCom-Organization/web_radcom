@@ -3,7 +3,7 @@
    Tudo o que ainda depende de confirmação fica aqui.
    ===================================================================== */
 window.RADCOM_CONFIG = {
-  empresa: "RadCom Rádio Comunicação",
+  empresa: "RadCom - Rádio Comunicação",
 
   /* -------------------------------------------------------------------
      >>> ADICIONE O CONTATO DA RADCOM AQUI <<<
@@ -17,8 +17,8 @@ window.RADCOM_CONFIG = {
        email:    "contato@radcom.ind.br"
      ------------------------------------------------------------------- */
   contato: {
-    telefone: "",
-    whatsapp: "",
-    email: ""
+    telefone: "551733220362",
+    whatsapp: "551733220362",
+    email: "Vendas@radcom.ind.br"
   }
 };
