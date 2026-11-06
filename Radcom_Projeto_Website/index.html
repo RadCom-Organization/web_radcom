@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RadCom Rádio Comunicação | Monitoramento, controle e automação</title>
+  <meta name="description" content="RadCom Rádio Comunicação: equipamentos de comunicação para monitoramento, controle e automação. Conheça as linhas RadCom." />
+  <link rel="icon" type="image/png" href="img_radcom/favicon.png" />
+  <link rel="apple-touch-icon" href="img_radcom/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body data-root="">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ============ CABEÇALHO GLOBAL (igual em todas as páginas) ============ -->
+  <header class="site-header">
+    <div class="wrap header-bar">
+      <a class="brand" href="index.html" aria-label="RadCom Rádio Comunicação, página inicial">
+        <img src="img_radcom/logo.jpeg" alt="RadCom Rádio Comunicação" width="830" height="411" />
+      </a>
+      <nav class="main-nav" aria-label="Principal">
+        <a href="#linhas">Linhas</a>
+        <a href="#sobre">Sobre a RadCom</a>
+        <!-- Botão "Contato": abre o WhatsApp da RadCom.
+             >>> ADICIONE O NÚMERO em assets/js/config.js (campo whatsapp) <<< -->
+        <a class="nav-contact" href="https://wa.me/" target="_blank" rel="noopener" data-contact-primary>Contato
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 17 17 7M9 7h8v8" />
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ============ ABERTURA ============ -->
+    <section class="home-hero" aria-labelledby="home-title">
+      <div class="wrap">
+        <div>
+          <p class="kicker on-dark">Rádio comunicação e automação</p>
+          <h1 id="home-title">Tecnologia para monitorar, controlar <em class="hl">e automatizar.</em></h1>
+          <p class="lead on-dark">Conheça as linhas de equipamentos da RadCom e encontre a solução para sua operação.</p>
+          <div class="btn-row">
+            <a class="btn btn-yellow" href="#linhas">Conhecer as linhas
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 5v14M6 13l6 6 6-6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <svg class="hero-diagram" viewBox="0 0 480 320" role="img"
+          aria-label="Ilustração: um ponto de rádio central ligado às linhas Hidro, Usina e Irrigação">
+          <circle class="ring" cx="120" cy="160" r="40" />
+          <circle class="ring" cx="120" cy="160" r="75" />
+          <circle class="ring" cx="120" cy="160" r="110" />
+          <circle class="ring" cx="120" cy="160" r="145" />
+          <circle class="pulse" cx="120" cy="160" r="40" />
+          <path class="line on" d="M144 160 H230 L268 70 H300" />
+          <path class="line" d="M230 160 H300" />
+          <path class="line" d="M230 160 L268 250 H300" />
+          <path class="line on" d="M0 160 H96" />
+          <circle cx="120" cy="160" r="24" fill="#1e2035" stroke="#fff" stroke-width="1.5" />
+          <g fill="none" stroke="#f6eb24" stroke-width="1.8" stroke-linecap="round" transform="translate(108 148)">
+            <circle cx="12" cy="12" r="1.6" fill="#f6eb24" stroke="none" />
+            <path d="M8.8 15.2a4.5 4.5 0 0 1 0-6.4M15.2 15.2a4.5 4.5 0 0 0 0-6.4M6 18a8.5 8.5 0 0 1 0-12M18 18a8.5 8.5 0 0 0 0-12" />
+          </g>
+          <circle cx="230" cy="160" r="4" fill="#f6eb24" />
+          <g class="node on"><rect x="300" y="46" width="150" height="48" rx="6" /><text x="330" y="75">HIDRO</text></g>
+          <g class="node"><rect x="300" y="136" width="150" height="48" rx="6" /><text x="330" y="165">USINA</text></g>
+          <g class="node"><rect x="300" y="226" width="150" height="48" rx="6" /><text x="330" y="255">IRRIGAÇÃO</text></g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============ SELETOR DE LINHAS ============
+         Os cartões são gerados a partir de assets/js/data.js (RADCOM_LINHAS). -->
+    <section id="linhas" class="section section-light" aria-labelledby="linhas-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Portfólio</p>
+            <h2 id="linhas-title">Encontre sua linha</h2>
+          </div>
+          <p class="aside">Explore a linha Hidro e conheça as demais linhas da RadCom.</p>
+        </div>
+        <ul class="lines-grid" id="lines-list"></ul>
+        <noscript>
+          <p>RadCom Hidro: <a href="hidro/index.html">explorar linha</a>. Usina e Irrigação: linhas RadCom.</p>
+        </noscript>
+      </div>
+    </section>
+
+    <!-- ============ INSTITUCIONAL / CONTATO ============ -->
+    <section id="sobre" class="about section" aria-labelledby="sobre-title">
+      <div class="wrap">
+        <div>
+          <p class="kicker">Sobre a RadCom</p>
+          <h2 id="sobre-title">Rádio comunicação a serviço da sua operação</h2>
+          <!-- TEXTO INSTITUCIONAL PROVISÓRIO: substitua pela apresentação oficial da RadCom. -->
+          <p>A RadCom Rádio Comunicação desenvolve e fabrica equipamentos de comunicação para monitoramento, controle e
+            automação, organizados em linhas por aplicação.</p>
+          <!-- Chamada de contato: aparece quando o contato for preenchido em assets/js/config.js -->
+          <p data-contact-slot hidden>Vamos falar sobre sua aplicação? Entre em contato com a RadCom.</p>
+        </div>
+        <!-- Botões de contato: gerados a partir de assets/js/config.js (RADCOM_CONFIG.contato) -->
+        <div class="contact-actions" data-contact-slot data-contact-list hidden></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ RODAPÉ GLOBAL ============ -->
+  <footer class="site-footer">
+    <div class="wrap footer-bar">
+      <div class="footer-brand"><strong>RadCom</strong><span>Rádio Comunicação</span></div>
+      <nav class="footer-nav" aria-label="Rodapé">
+        <a href="#linhas">Linhas</a>
+        <a href="#sobre">Sobre a RadCom</a>
+      </nav>
+    </div>
+    <div class="wrap footer-copy">© <span data-year>2026</span> RadCom Rádio Comunicação. Todos os direitos reservados.</div>
+  </footer>
+
+  <!-- Botão flutuante do WhatsApp.
+       >>> ADICIONE O NÚMERO em assets/js/config.js (campo whatsapp) <<< -->
+  <a class="whatsapp-float" href="https://wa.me/" target="_blank" rel="noopener" data-whatsapp
+    aria-label="Conversar com a RadCom pelo WhatsApp">
+    <img src="img_radcom/whatsapp.png" alt="" width="512" height="512" />
+  </a>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+
+</html>

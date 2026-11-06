@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RadCom Hidro | Monitoramento e controle de reservatórios</title>
+  <meta name="description" content="RadCom Hidro: monitore o nível do reservatório e automatize o acionamento da bomba com módulos de rádio LoRa, Wi-Fi e 4G." />
+  <link rel="icon" type="image/png" href="../img_radcom/favicon.png" />
+  <link rel="apple-touch-icon" href="../img_radcom/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+
+<body data-root="../">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ============ CABEÇALHO GLOBAL (igual em todas as páginas) ============ -->
+  <header class="site-header">
+    <div class="wrap header-bar">
+      <a class="brand" href="../index.html" aria-label="RadCom Rádio Comunicação, página inicial">
+        <img src="../img_radcom/logo.jpeg" alt="RadCom Rádio Comunicação" width="830" height="411" />
+      </a>
+      <nav class="main-nav" aria-label="Principal">
+        <a href="../index.html#linhas">Linhas</a>
+        <a href="../index.html#sobre">Sobre a RadCom</a>
+        <!-- Botão "Contato": abre o WhatsApp da RadCom.
+             >>> ADICIONE O NÚMERO em assets/js/config.js (campo whatsapp) <<< -->
+        <a class="nav-contact" href="https://wa.me/" target="_blank" rel="noopener" data-contact-primary>Contato
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 17 17 7M9 7h8v8" />
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ NAVEGAÇÃO LOCAL DA LINHA ============ -->
+  <nav class="subnav" aria-label="Seções da RadCom Hidro">
+    <div class="wrap subnav-bar">
+      <ol class="crumbs">
+        <li><a href="../index.html#linhas">Linhas</a></li>
+        <li aria-hidden="true">/</li>
+        <li><strong aria-current="page">RadCom Hidro</strong></li>
+      </ol>
+      <ul class="subnav-links">
+        <li><a href="#aplicacoes">Aplicações</a></li>
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#equipamentos">Equipamentos</a></li>
+        <li><a href="#monitoramento">Monitoramento</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="conteudo">
+
+    <!-- ============ 01 · ABERTURA ============ -->
+    <section class="pan-hero" aria-labelledby="hidro-title">
+      <div class="wrap">
+        <div class="hero-panel">
+          <p class="kicker on-dark">RadCom Hidro</p>
+          <h1 id="hidro-title">Do reservatório <em class="hl">à bomba.</em></h1>
+          <p class="lead on-dark">Monitore o nível da água e automatize o acionamento da bomba conforme a configuração
+            da instalação.</p>
+          <div class="btn-row">
+            <a class="btn btn-yellow" href="#como-funciona">Entender o sistema
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 5v14M6 13l6 6 6-6" />
+              </svg>
+            </a>
+            <a class="btn btn-ghost" href="#equipamentos">Ver equipamentos
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a class="scroll-hint" href="#aplicacoes" aria-label="Ir para Aplicações">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </a>
+    </section>
+
+    <!-- faixa de destaques -->
+    <div class="strip" >
+      <ul class="wrap">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none" />
+            <path d="M8.8 15.2a4.5 4.5 0 0 1 0-6.4M15.2 15.2a4.5 4.5 0 0 0 0-6.4M6 18a8.5 8.5 0 0 1 0-12M18 18a8.5 8.5 0 0 0 0-12" />
+          </svg>
+          Comunicação por rádio LoRa
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 18v-4M9.3 18v-8M14.6 18V6M20 18V3" />
+          </svg>
+          Wi-Fi ou 4G até a plataforma
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v11" />
+            <circle cx="12" cy="15.5" r="2.2" />
+            <path d="M5 19c2.5 1.3 11.5 1.3 14 0" />
+          </svg>
+          Sonda hidrostática de nível
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <circle cx="5" cy="12" r="2" />
+            <circle cx="12" cy="12" r="2" />
+            <circle cx="19" cy="12" r="2" />
+          </svg>
+          LEDs Rx · Tx · Status
+        </li>
+      </ul>
+    </div>
+
+    <!-- ============ 02 · APLICAÇÕES ============ -->
+    <section id="aplicacoes" class="section section-light" aria-labelledby="aplicacoes-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="kicker">01 / Aplicações</p>
+            <h2 id="aplicacoes-title">Onde a Hidro atua</h2>
+          </div>
+          <p class="aside">Três funções para entender a linha antes de escolher o equipamento.</p>
+        </div>
+        <ul class="apps-grid">
+          <li class="app-card">
+            <span class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <ellipse cx="12" cy="5.5" rx="7" ry="2.5" />
+                <path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13" />
+                <path d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5" />
+              </svg>
+            </span>
+            <div>
+              <h3>Medir o nível</h3>
+              <p>Acompanhe a variação do nível da água no reservatório com a sonda hidrostática.</p>
+            </div>
+          </li>
+          <li class="app-card">
+            <span class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" />
+              </svg>
+            </span>
+            <div>
+              <h3>Acionar a bomba</h3>
+              <p>Use os limites configurados para ligar e desligar a bomba de forma automática.</p>
+            </div>
+          </li>
+          <li class="app-card">
+            <span class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="12" rx="1.5" />
+                <path d="M8 20h8M12 16v4" />
+                <path d="M6.5 11.5 9 9l2.5 2 3-3.5 3 2.5" />
+              </svg>
+            </span>
+            <div>
+              <h3>Acompanhar à distância</h3>
+              <p>Consulte os dados da operação na plataforma, com a conectividade adequada a cada ponto.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 03 · COMO FUNCIONA ============ -->
+    <section id="como-funciona" class="section section-muted" aria-labelledby="funciona-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="kicker">02 / Funcionamento</p>
+            <h2 id="funciona-title">Como o sistema funciona</h2>
+          </div>
+          <span class="tag">Fluxo ilustrativo</span>
+        </div>
+        <ol class="flow-steps">
+          <li class="flow-step">
+            <span class="step-num">01 · MEDIÇÃO</span>
+            <h3>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3v11" />
+                <circle cx="12" cy="15.5" r="2.2" />
+                <path d="M5 19c2.5 1.3 11.5 1.3 14 0" />
+              </svg>
+              Sonda
+            </h3>
+            <p>No fundo do reservatório, lê o nível da água.</p>
+            <span class="step-link" aria-hidden="true"><small>Nível</small>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </span>
+          </li>
+          <li class="flow-step">
+            <span class="step-num">02 · TRANSMISSÃO</span>
+            <h3>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none" />
+                <path d="M8.8 15.2a4.5 4.5 0 0 1 0-6.4M15.2 15.2a4.5 4.5 0 0 0 0-6.4M6 18a8.5 8.5 0 0 1 0-12M18 18a8.5 8.5 0 0 0 0-12" />
+              </svg>
+              Módulo do reservatório
+            </h3>
+            <p>Transmite o nível por rádio.</p>
+            <span class="step-link" aria-hidden="true"><small>LoRa</small>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </span>
+          </li>
+          <li class="flow-step">
+            <span class="step-num">03 · CONTROLE</span>
+            <h3>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="6" y="3" width="12" height="18" rx="2" />
+                <path d="M9 7h6M9 11h6" />
+                <circle cx="10" cy="16" r=".8" fill="currentColor" stroke="none" />
+                <circle cx="14" cy="16" r=".8" fill="currentColor" stroke="none" />
+              </svg>
+              Módulo do poço
+            </h3>
+            <p>Compara o nível com os limites configurados.</p>
+            <span class="step-link" aria-hidden="true"><small>Comando</small>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </span>
+          </li>
+          <li class="flow-step">
+            <span class="step-num">04 · AÇÃO</span>
+            <h3>
+              <img src="../img_radcom/electric-motor.png" alt="" width="26" height="26" />
+              Bomba
+            </h3>
+            <p>Liga ou desliga conforme o comando.</p>
+          </li>
+        </ol>
+        <div class="remote-note">
+          <p><strong>Acesso remoto</strong>A plataforma recebe os dados por Wi-Fi ou 4G, conforme o modelo e a
+            instalação: os reservatórios Wi-Fi e 4G se conectam sozinhos, e o Reservatório LoRa usa um gateway.</p>
+          <a class="btn btn-dark" href="#equipamentos">Ver equipamentos
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 04 · VITRINE ============
+         Os cartões e os detalhes vêm de assets/js/data.js (RADCOM_PRODUTOS). -->
+    <section id="equipamentos" class="section section-light" aria-labelledby="equipamentos-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="kicker">03 / Catálogo</p>
+            <h2 id="equipamentos-title">Equipamentos da Hidro</h2>
+          </div>
+          <p class="aside">Escolha pelo papel na instalação: controle do poço, medição no reservatório ou conectividade.</p>
+        </div>
+        <div class="filters" id="filters" role="group" aria-label="Filtrar equipamentos por função">
+          <button class="filter-btn" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+          <button class="filter-btn" type="button" data-filter="poco" aria-pressed="false">Poço</button>
+          <button class="filter-btn" type="button" data-filter="reservatorio" aria-pressed="false">Reservatórios</button>
+          <button class="filter-btn" type="button" data-filter="gateway" aria-pressed="false">Gateways</button>
+        </div>
+        <p class="sr-only" id="filter-status" aria-live="polite"></p>
+        <ul class="products-grid" id="products-list"></ul>
+        <noscript><p class="empty-msg">Ative o JavaScript para ver a vitrine de equipamentos.</p></noscript>
+      </div>
+    </section>
+
+    <!-- ============ 05 · APROFUNDAMENTO ============ -->
+    <section id="sonda" class="section section-muted" aria-labelledby="sonda-title">
+      <div class="wrap split">
+        <figure class="photo-frame contain">
+          <img src="../img_radcom/sonda_hidrostatica.jpg" alt="Sonda hidrostática de nível" width="447" height="489" loading="lazy" />
+        </figure>
+        <div>
+          <div class="section-head">
+            <div>
+              <p class="kicker">Sensor de nível</p>
+              <h2 id="sonda-title">Sonda hidrostática</h2>
+              <p class="lead">Instalada no fundo do poço ou do reservatório, mede a pressão da coluna d'água e a converte
+                em nível.</p>
+            </div>
+          </div>
+          <ol class="steps-list">
+            <li><strong>01 · Mede</strong>Pressão da água no fundo</li>
+            <li><strong>02 · Transmite</strong>Nível enviado por LoRa</li>
+            <li><strong>03 · Aciona</strong>Bomba liga ou desliga</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="quadro" class="section section-light" aria-labelledby="quadro-title">
+      <div class="wrap split reverse">
+        <figure class="photo-frame">
+          <img src="../img_radcom/painel2.jpg"
+            alt="Quadro de comando aberto com módulo RadCom Reservatório, disjuntores, relés e borne da sonda de nível"
+            width="1200" height="1072" loading="lazy" />
+        </figure>
+        <div class="section-head">
+          <div>
+            <p class="kicker">Quadro de comando</p>
+            <h2 id="quadro-title">Tudo organizado em um só quadro</h2>
+            <p class="lead">O módulo, a proteção elétrica e as ligações da bomba e da sonda, prontos para instalar junto
+              ao poço ou ao reservatório.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="instalacao" class="section section-dark" aria-labelledby="instalacao-title">
+      <div class="wrap split">
+        <figure class="photo-frame install-photo">
+          <img src="../img_radcom/instalacao.jpg" alt="Quadro de comando real com módulos RadCom instalados lado a lado"
+            width="1000" height="1292" loading="lazy" />
+          <figcaption>Quadro de comando com módulos RadCom instalados</figcaption>
+        </figure>
+        <div>
+          <div class="section-head">
+            <div>
+              <p class="kicker on-dark">Instalação em campo</p>
+              <h2 id="instalacao-title">Wi-Fi ou 4G: a conexão certa para cada ponto</h2>
+            </div>
+          </div>
+          <ul class="tile-list">
+            <li class="tile">
+              <span class="icon-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                  <path d="M4 8.5a12 12 0 0 1 16 0M7 12a8 8 0 0 1 10 0M10 15.5a4 4 0 0 1 4 0" />
+                  <circle cx="12" cy="19" r="1" fill="currentColor" stroke="none" />
+                </svg>
+              </span>
+              <div>
+                <h3>Com Wi-Fi no local</h3>
+                <p>Gateway Wi-Fi ou Reservatório Wi-Fi usam a rede do local para enviar os dados.</p>
+              </div>
+            </li>
+            <li class="tile">
+              <span class="icon-badge yellow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                  <path d="M4 18v-4M9.3 18v-8M14.6 18V6M20 18V3" />
+                </svg>
+              </span>
+              <div>
+                <h3>Sem Wi-Fi no local</h3>
+                <p>Gateway 4G ou Reservatório 4G conectam pela rede celular, indicados para áreas rurais e remotas.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MONITORAMENTO ============ -->
+    <section id="monitoramento" class="section section-muted" aria-labelledby="monitoramento-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="kicker">04 / Monitoramento</p>
+            <h2 id="monitoramento-title">Uma visão da operação</h2>
+          </div>
+          <p class="aside">Consulte o nível e o estado da bomba na plataforma, conforme os equipamentos e a configuração
+            utilizados.</p>
+        </div>
+        <div class="platform-shots">
+          <figure class="photo-frame">
+            <img src="../img_radcom/plataforma.jpg" alt="Visão geral da plataforma, com poços e reservatórios no mapa"
+              width="1919" height="1200" loading="lazy" />
+            <figcaption>Visão geral dos pontos cadastrados</figcaption>
+          </figure>
+          <figure class="photo-frame">
+            <img src="../img_radcom/plataforma2.jpg" alt="Detalhe de um grupo na plataforma, com reservatórios e bombas"
+              width="1649" height="985" loading="lazy" />
+            <figcaption>Detalhe de um grupo de equipamentos</figcaption>
+          </figure>
+        </div>
+
+        <div class="config-grid">
+          <div class="shots-pair">
+            <figure class="photo-frame">
+              <img src="../img_radcom/web1.jpeg" alt="Página de configuração local: estado das conexões e nível do reservatório"
+                width="739" height="1531" loading="lazy" />
+              <figcaption>Conexões e nível</figcaption>
+            </figure>
+            <figure class="photo-frame">
+              <img src="../img_radcom/web2.jpeg" alt="Página de configuração local: entradas digitais e estado das saídas"
+                width="739" height="1533" loading="lazy" />
+              <figcaption>Entradas e saídas</figcaption>
+            </figure>
+          </div>
+          <div>
+            <p class="kicker">Configuração local</p>
+            <h3 class="sub-head">Cada equipamento tem sua página de configuração</h3>
+            <ul class="tile-list">
+              <li class="tile">
+                <div>
+                  <h3>Estado das conexões</h3>
+                  <p>Sinal, internet e comunicação com a plataforma.</p>
+                </div>
+              </li>
+              <li class="tile">
+                <div>
+                  <h3>Nível do reservatório</h3>
+                  <p>Leitura da sonda em tempo real.</p>
+                </div>
+              </li>
+              <li class="tile">
+                <div>
+                  <h3>Estado das saídas</h3>
+                  <p>Cada saída controla uma bomba, em modo automático ou remoto.</p>
+                </div>
+              </li>
+              <li class="tile">
+                <div>
+                  <h3>Entradas digitais</h3>
+                  <p>Monitoram equipamentos próximos, como uma bomba dosadora.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DEMONSTRAÇÃO (opcional, ilustrativa) ============ -->
+    <section id="demonstracao" class="section section-light" aria-labelledby="demo-title">
+      <div class="wrap">
+        <div class="sim-head">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Demonstração</p>
+              <h2 id="demo-title">Veja a lógica funcionando</h2>
+              <p class="lead">O reservatório transmite o nível por rádio, o poço liga ou desliga a bomba conforme os limites
+                e o gateway leva o dado à plataforma.</p>
+            </div>
+          </div>
+          <div class="sim-buttons">
+            <button id="toggle" class="sim-primary" type="button">Pausar</button>
+            <button id="reset" type="button">Reiniciar</button>
+          </div>
+        </div>
+
+        <p class="demo-flag">Demonstração ilustrativa</p>
+
+        <p class="rotate-hint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="7" width="18" height="11" rx="2" />
+            <path d="M8 3.5a6 6 0 0 1 8 0" />
+            <path d="m15 2 1 1.5-1.6.9" />
+          </svg>
+          Para uma melhor visualização, deite o seu dispositivo.
+        </p>
+
+        <div class="panel diagram">
+          <svg id="svg" viewBox="0 0 900 446" role="img"
+            aria-label="Diagrama animado: gateway, poço com bomba e reservatório trocando mensagens de nível por rádio"></svg>
+        </div>
+
+        <div class="panel config">
+          <h3>Ajuste os limites</h3>
+          <div class="cfg-grid">
+            <label>
+              <span class="row"><span>Nível para ligar a bomba</span><span class="val"><span id="v-liga">30</span>%</span></span>
+              <input id="liga" type="range" min="5" max="95" value="30" />
+            </label>
+            <label>
+              <span class="row"><span>Nível para desligar a bomba</span><span class="val"><span id="v-desliga">90</span>%</span></span>
+              <input id="desliga" type="range" min="10" max="100" value="90" />
+            </label>
+            <label>
+              <span class="row"><span>Consumo da rede</span><span class="val"><span id="v-consumo">3</span>%/s</span></span>
+              <input id="consumo" type="range" min="0" max="10" value="3" />
+            </label>
+            <label>
+              <span class="row"><span>Vazão da bomba</span><span class="val"><span id="v-vazao">7</span>%/s</span></span>
+              <input id="vazao" type="range" min="1" max="15" value="7" />
+            </label>
+          </div>
+        </div>
+        <p class="sim-note">Valores e tempos fictícios, só para mostrar a lógica de acionamento.</p>
+      </div>
+    </section>
+
+    <!-- ============ CHAMADA FINAL ============
+         Aparece sozinha quando o contato for preenchido em assets/js/config.js -->
+    <section id="contato" class="cta-band" data-contact-slot hidden aria-labelledby="cta-title">
+      <div class="wrap">
+        <h2 id="cta-title">Converse com a RadCom sobre sua aplicação.</h2>
+        <div class="contact-actions" data-contact-list></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ RODAPÉ GLOBAL ============ -->
+  <footer class="site-footer">
+    <div class="wrap footer-bar">
+      <div class="footer-brand"><strong>RadCom</strong><span>Rádio Comunicação</span></div>
+      <nav class="footer-nav" aria-label="Rodapé">
+        <a href="../index.html#linhas">Todas as linhas</a>
+        <a href="../index.html#sobre">Sobre a RadCom</a>
+      </nav>
+    </div>
+    <div class="wrap footer-copy">© <span data-year>2026</span> RadCom Rádio Comunicação. Todos os direitos reservados.</div>
+  </footer>
+
+  <!-- Botão flutuante do WhatsApp.
+       >>> ADICIONE O NÚMERO em assets/js/config.js (campo whatsapp) <<< -->
+  <a class="whatsapp-float" href="https://wa.me/" target="_blank" rel="noopener" data-whatsapp
+    aria-label="Conversar com a RadCom pelo WhatsApp">
+    <img src="../img_radcom/whatsapp.png" alt="" width="512" height="512" />
+  </a>
+
+  <!-- Detalhe "Como usar?" (preenchido por assets/js/site.js) -->
+  <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title">
+    <button class="dialog-close" type="button" aria-label="Fechar detalhe">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M6 6l12 12M18 6 6 18" />
+      </svg>
+    </button>
+    <div id="dialog-content"></div>
+  </dialog>
+
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/site.js"></script>
+  <script src="../assets/js/simulacao.js"></script>
+</body>
+
+</html>
