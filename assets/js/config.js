@@ -17,8 +17,8 @@ window.RADCOM_CONFIG = {
        email:    "contato@radcom.ind.br"
      ------------------------------------------------------------------- */
   contato: {
-    telefone: "551733220362",
-    whatsapp: "551733220362",
+    telefone: "+55 (17)3322-0362",
+    whatsapp: "+55 (17)3322-0362",
     email: "Vendas@radcom.ind.br"
   }
 };
