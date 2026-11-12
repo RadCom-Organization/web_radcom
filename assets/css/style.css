@@ -419,8 +419,31 @@ body.dialog-open { overflow: hidden; }
 .demo-flag { display: inline-flex; align-items: center; gap: .45rem; margin: 0 0 1rem; padding: .35rem .7rem; border-radius: .35rem; background: var(--yellow); color: var(--navy-deep); font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .panel { border: 1px solid var(--border); background: var(--card); border-radius: var(--radius); }
 .diagram { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; box-shadow: var(--shadow); }
-#svg { display: block; width: 100%; min-width: 820px; height: auto; }
+#svg { display: block; width: 100%; height: auto; }
 .config { margin-top: 1.25rem; padding: 1.25rem; }
+/* diagrama compacto com a configuração ao lado (desktop) */
+    .sim-body {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 900px) {
+      .sim-body {
+        max-width: none;
+        display: grid;
+        grid-template-columns: minmax(0, 480px) minmax(0, 1fr);
+        align-items: start;
+        gap: 1.5rem;
+      }
+
+      .sim-body .config {
+        margin-top: 0;
+      }
+
+      .sim-body .cfg-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 .config h3 { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .18em; color: var(--fg-muted); }
 .cfg-grid { display: grid; gap: 1.25rem; margin-top: 1rem; }
 @media (min-width: 640px) { .cfg-grid { grid-template-columns: 1fr 1fr; } }
@@ -441,7 +464,7 @@ body.dialog-open { overflow: hidden; }
 .ping-ring { animation: ping-ring 1.2s ease-out infinite; transform-box: view-box; }
 .flow { animation: flow .6s linear infinite; }
 .blink { animation: blink .8s steps(2) infinite; }
-.cloud-publish { animation: cloud-pop 1.2s ease-out forwards; transform-box: fill-box; transform-origin: center; }
+.cloud-publish { animation: cloud-pop 3.5s ease-out forwards; transform-box: fill-box; transform-origin: center; }
 .lbl-title { font-family: var(--font-sans); font-weight: 700; }
 .lbl-sub { font-family: var(--font-mono); font-weight: 600; }
 
