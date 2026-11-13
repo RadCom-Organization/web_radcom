@@ -1,0 +1,96 @@
+# =====================================================================
+#  RADCOM — regras do servidor Apache para a RAIZ de radcom.ind.br
+#
+#  Como funciona: o site fica na pasta /WEBSITE/, mas é servido na raiz.
+#  O visitante e o Google veem radcom.ind.br/ e radcom.ind.br/hidro/,
+#  nunca /WEBSITE/ no endereço.
+#
+#  ATENÇÃO, LEIA ANTES DE ENVIAR:
+#  Este arquivo SUBSTITUI o .htaccess do WordPress que está hoje na raiz.
+#  1. Baixe pelo FTP o .htaccess atual e guarde uma cópia de segurança
+#     (ex.: no seu computador, como "htaccess-wordpress.txt").
+#     VOLTAR PARA O WORDPRESS = reenviar essa cópia como .htaccess.
+#  2. Se ele tiver linhas colocadas pela hospedagem (ex.: "AddHandler ... php",
+#     "# php -- BEGIN cPanel-generated handler"), copie essas linhas para o
+#     fim deste arquivo. NÃO copie o bloco "# BEGIN WordPress ... # END WordPress".
+#  3. As regras abaixo valem também para os outros projetos da raiz. Arquivos e
+#     pastas que existem de verdade na raiz continuam respondendo normalmente,
+#     mas teste esses projetos logo depois de publicar.
+# =====================================================================
+
+# Não listar o conteúdo de pastas sem página inicial
+Options -Indexes
+
+DirectoryIndex index.html index.php
+
+# Endereço inexistente -> página 404 da RadCom
+ErrorDocument 404 /WEBSITE/404.html
+
+AddType image/webp .webp
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # ---- 1. Endereço único: https e sem "www" (o Google trata variações como sites diferentes)
+  #      Hoje o servidor responde também em http:// sem redirecionar. Se, depois de publicar,
+  #      o navegador mostrar "redirecionamento em excesso", apague as 3 linhas que começam
+  #      em "RewriteCond %{HTTPS}" e peça à hospedagem para forçar o HTTPS pelo painel.
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # ---- 2. Páginas do site antigo (WordPress) -> páginas novas
+  #      O redirecionamento 301 transfere para a página nova o histórico de busca da antiga.
+  RewriteRule ^quem-somos/?$ /#sobre [R=301,NE,L]
+  RewriteRule ^contato/?$ /#sobre [R=301,NE,L]
+  RewriteRule ^(parceiros|feiras-e-eventos|politica-de-privacidade)/?$ / [R=301,L]
+  RewriteRule ^sitemap\.html$ / [R=301,L]
+  RewriteRule ^sitemap-[a-z0-9-]+\.xml$ /sitemap.xml [R=301,L]
+  RewriteRule ^(comments/)?feed/?$ / [R=301,L]
+
+  # ---- 3. Quem digitar /WEBSITE/... é levado ao endereço público (evita página duplicada no Google)
+  #      THE_REQUEST é o pedido original do navegador; por isso esta regra não entra em laço
+  #      com o redirecionamento interno da etapa 5.
+  RewriteCond %{THE_REQUEST} ^\S+\s/WEBSITE/([^\s?]*) [NC]
+  RewriteRule ^ /%1 [R=301,NE,L]
+
+  # ---- 4. Pastas sem a barra final (ex.: /hidro -> /hidro/)
+  #      Sem esta regra, o Apache acrescentaria a barra expondo /WEBSITE/ no endereço.
+  RewriteCond %{REQUEST_URI} !^/WEBSITE/
+  RewriteCond %{DOCUMENT_ROOT}/WEBSITE/$1 -d
+  RewriteRule ^(.*[^/])$ /$1/ [R=301,L]
+
+  # ---- 5. Servir o site a partir de /WEBSITE/ (internamente: o endereço não muda)
+  #      Página inicial, robots.txt e sitemap.xml sempre vêm do site novo,
+  #      mesmo que exista um arquivo antigo com esse nome na raiz.
+  RewriteRule ^$ /WEBSITE/ [L]
+  RewriteRule ^(robots\.txt|sitemap\.xml)$ /WEBSITE/$1 [L]
+  #      O resto só vai para /WEBSITE/ se NÃO existir na raiz:
+  #      assim os outros projetos (e o WordPress, enquanto estiver lá) continuam acessíveis.
+  RewriteCond %{REQUEST_URI} !^/WEBSITE/
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ /WEBSITE/$1 [L]
+</IfModule>
+
+# ---- Velocidade: compressão e cache no navegador
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml application/javascript application/json image/svg+xml
+</IfModule>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 day"
+  ExpiresByType application/javascript "access plus 1 day"
+  ExpiresByType image/webp "access plus 1 week"
+  ExpiresByType image/jpeg "access plus 1 week"
+  ExpiresByType image/png "access plus 1 week"
+</IfModule>
+
+# ---- Segurança básica
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

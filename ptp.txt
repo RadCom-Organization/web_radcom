@@ -1,0 +1,7 @@
+Desconsidere estes pontos abrodados por você no momento, existem alguns aspectos que gostaria de corrigir e planejar com você. 
+
+1 - Anexei um print de como a ultima chamada para o contato da página hidro está. Ela está nada atrativa e pouco visualmente agradável, quero que gere uma subpágina de teste com 3 sugestões de melhoria construídas em códigos, assim ao acessar, por exemplo, /actioncall, os três componentes estejam visivei para que eu possa escolher entre um deles, ou chegarmos em alguma mesclagem. 
+
+2 - A página em questão será publicada em um servidor ftp que atualmente contempla um website em wordpress além de outros projetos. minha preocupação primária é a de expor completamente a raís deste servidor ao simplesmente enviar os arquivos deste projeto para lá. precisamos conversar para que eu possa compreender se esta é uma preocupação válida, se ela pode ser corrigida e como fazê-la. 
+
+3 - O website atualmente com o projeto atual é indexado automaticamente na primeira página por 

@@ -6,7 +6,49 @@ Site estático em duas páginas: **Início** (`index.html`) e **RadCom Hidro** (
 ## Como abrir
 
 - **No computador:** dê duplo clique em `index.html`. O site funciona direto do disco, sem servidor.
-- **Publicado:** envie a pasta inteira para qualquer hospedagem estática (GitHub Pages, Netlify etc.). Todos os caminhos são relativos.
+- **Publicado:** **não envie a pasta inteira.** Siga "Publicar em radcom.ind.br" abaixo.
+
+## Publicar em radcom.ind.br
+
+No servidor, o site fica na pasta `WEBSITE/`, mas aparece na raiz do domínio (`radcom.ind.br/`, `radcom.ind.br/hidro/`). Quem faz essa ligação é o `.htaccess` da raiz. O WordPress pode continuar onde está, como plano B.
+
+```
+raiz do servidor/
+├── .htaccess     ← o deste projeto (substitui o do WordPress)
+├── WEBSITE/      ← o site
+├── wp-…, index.php   ← WordPress antigo, intocado
+└── outros projetos
+```
+
+**Preparar**
+
+1. Se mudou algo em `assets/js/data.js`, rode `python ferramentas/prerender.py`. O script grava no HTML os cartões e a vitrine, para que o Google leia esse conteúdo.
+2. Rode `python ferramentas/gerar_publicacao.py`. Ele monta `publicacao/.htaccess` e `publicacao/WEBSITE/`, só com o que deve ir ao ar: sem README, ferramentas, página de teste, `.git` nem imagens originais pesadas.
+
+**Primeira publicação** (use FTPS ou SFTP sempre que a hospedagem oferecer)
+
+3. Envie a pasta `publicacao/WEBSITE/` para a raiz. O WordPress continua no ar.
+4. Teste o site novo em `https://radcom.ind.br/WEBSITE/`. Até aqui, nada mudou para os visitantes.
+5. Baixe o `.htaccess` atual da raiz e guarde-o como `htaccess-wordpress.txt`. Leia o aviso no topo do nosso `.htaccess`.
+6. Envie `publicacao/.htaccess` para a raiz. **Neste momento o site novo entra no ar.**
+7. Teste: `https://radcom.ind.br/`, `/hidro/`, `/hidro` (sem barra, deve ganhar a barra), `/quem-somos/` (deve ir para a home), `/WEBSITE/` (deve ir para `/`), `/qualquer-coisa` (página 404) e os outros projetos da raiz.
+
+**Voltar ao WordPress (rollback):** reenvie `htaccess-wordpress.txt` para a raiz com o nome `.htaccess`. A pasta `WEBSITE/` pode ficar onde está.
+
+**Atualizar o site:** rode os passos 1 e 2 e envie só a pasta `WEBSITE/`. O `.htaccess` só precisa ser reenviado se mudar.
+
+**Depois de algumas semanas estável:** remova o WordPress do servidor ou mova-o para fora da pasta pública. Enquanto ele estiver lá, `/wp-login.php` continua acessível, e WordPress sem atualização é alvo comum de ataques.
+
+## SEO
+
+- Cada página tem título, descrição, `canonical`, Open Graph e dados estruturados (JSON-LD) no `<head>`. O domínio `https://radcom.ind.br/` está escrito nesses pontos, em `robots.txt` e em `sitemap.xml`.
+- O `.htaccess` redireciona (301) as páginas do WordPress antigo para as novas, para manter o histórico de busca.
+- Ao criar uma página nova (ex.: `usina/`), copie e adapte o bloco SEO do `<head>` da Hidro, acrescente a página em `sitemap.xml` e adicione um `RewriteRule` se ela substituir algum endereço antigo.
+- Depois de publicar, no [Google Search Console](https://search.google.com/search-console): envie `https://radcom.ind.br/sitemap.xml` e peça a indexação de `/` e `/hidro/`.
+
+## Página de teste: propostas de chamada final
+
+`actioncall/index.html` mostra três opções para a faixa de contato do fim da Hidro. É só para escolha: tem `noindex` e fica fora da publicação.
 
 ## Estrutura
 
@@ -27,11 +69,11 @@ Substitua o arquivo em `img_radcom/` por outro **com o mesmo nome**. As fotos gr
 
 | No site                       | Gerado a partir de |
 |-------------------------------|--------------------|
-| `fundo.jpg` (abertura Hidro)  | `fundo.PNG`        |
-| `instalacao.jpg`              | `instalacao.png`   |
-| `painel2.jpg`                 | `painel2.png`      |
+| `fundo.webp` (abertura Hidro) | `fundo.PNG`        |
+| `instalacao.webp`             | `instalacao.png`   |
+| `painel2.webp`                | `painel2.png`      |
 
-Ao trocar uma delas, salve direto como `.jpg` (cerca de 1920 px de largura para o fundo e 1000 a 1200 px para as outras).
+Ao trocar uma delas, salve direto como `.webp` (cerca de 1920 px de largura para o fundo e 1000 a 1200 px para as outras).
 
 As imagens dos produtos são definidas em `assets/js/data.js`, no campo `imagem` de cada produto.
 O **Reservatório (LoRa)** usa por enquanto a foto do Reservatório Wi-Fi e mostra a etiqueta "Foto ilustrativa".

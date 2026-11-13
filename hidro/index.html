@@ -4,8 +4,56 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RadCom Hidro | Monitoramento e controle de reservatórios</title>
-  <meta name="description" content="RadCom Hidro: monitore o nível do reservatório e automatize o acionamento da bomba com módulos de rádio LoRa, Wi-Fi e 4G." />
+  <title>RadCom Hidro | Monitoramento de reservatório e automação de bomba</title>
+  <meta name="description" content="RadCom Hidro: monitore o nível do reservatório e automatize o acionamento da bomba do poço com módulos de rádio LoRa, Wi-Fi e 4G. Fabricado em Barretos-SP." />
+
+  <!-- ============ SEO ============
+       Endereço oficial desta página. Se o domínio mudar, troque aqui,
+       no og:url / og:image abaixo, no JSON-LD, em sitemap.xml e em robots.txt. -->
+  <link rel="canonical" href="https://radcom.ind.br/hidro/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#1e2035" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="RadCom Rádio Comunicação" />
+  <meta property="og:url" content="https://radcom.ind.br/hidro/" />
+  <meta property="og:title" content="RadCom Hidro | Do reservatório à bomba" />
+  <meta property="og:description" content="Monitore o nível do reservatório e automatize a bomba do poço com módulos de rádio LoRa, Wi-Fi e 4G." />
+  <meta property="og:image" content="https://radcom.ind.br/img_radcom/og-radcom.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Módulos RadCom Hidro instalados em um quadro de comando" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://radcom.ind.br/hidro/#pagina",
+        "url": "https://radcom.ind.br/hidro/",
+        "name": "RadCom Hidro | Monitoramento de reservatório e automação de bomba",
+        "description": "Monitoramento de nível de reservatório e acionamento automático de bomba com módulos de rádio LoRa, Wi-Fi e 4G.",
+        "inLanguage": "pt-BR",
+        "isPartOf": { "@id": "https://radcom.ind.br/#site" },
+        "about": { "@id": "https://radcom.ind.br/#organizacao" },
+        "primaryImageOfPage": "https://radcom.ind.br/img_radcom/og-radcom.jpg",
+        "breadcrumb": { "@id": "https://radcom.ind.br/hidro/#trilha" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://radcom.ind.br/hidro/#trilha",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "RadCom", "item": "https://radcom.ind.br/" },
+          { "@type": "ListItem", "position": 2, "name": "RadCom Hidro", "item": "https://radcom.ind.br/hidro/" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- A imagem de abertura é o maior elemento da tela: começa a baixar antes do CSS -->
+  <link rel="preload" as="image" href="../img_radcom/fundo.webp" type="image/webp" fetchpriority="high" />
   <link rel="icon" type="image/png" href="../img_radcom/favicon.png" />
   <link rel="apple-touch-icon" href="../img_radcom/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,7 +76,7 @@
         <a href="../index.html#sobre">Sobre a RadCom</a>
         <!-- Botão "Contato": abre o WhatsApp da RadCom.
              >>> ADICIONE O NÚMERO em assets/js/config.js (campo whatsapp) <<< -->
-        <a class="nav-contact" href="https://wa.me/" target="_blank" rel="noopener" data-contact-primary>Contato
+        <a class="nav-contact" href="https://wa.me/551733220362" target="_blank" rel="noopener" data-contact-primary>Contato
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round" aria-hidden="true">
             <path d="M7 17 17 7M9 7h8v8" />
@@ -269,8 +317,9 @@
           <button class="filter-btn" type="button" data-filter="gateway" aria-pressed="false">Gateways</button>
         </div>
         <p class="sr-only" id="filter-status" aria-live="polite"></p>
-        <ul class="products-grid" id="products-list"></ul>
-        <noscript><p class="empty-msg">Ative o JavaScript para ver a vitrine de equipamentos.</p></noscript>
+        <ul class="products-grid" id="products-list"><!-- PRERENDER:products-list -->
+<li data-categoria="poco"><article class="product-card" aria-labelledby="prod-poco"><div class="product-media"><img src="../img_radcom/poco.webp" alt="Módulo Poço RadCom" width="1409" height="2659" loading="lazy"></div><div class="product-body"><div class="chip-row"><span class="chip">LoRa</span></div><h3 id="prod-poco">Poço</h3><p class="model">RD-2E2S/WI-FI-PÇ</p><p>Fica junto à bomba e liga ou desliga conforme o nível enviado pelo reservatório.</p><span class="conn-badge no-upload">Vinculado a um reservatório</span><button class="btn-usecase" type="button" data-produto="poco" aria-haspopup="dialog">Como usar? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button></div></article></li><li data-categoria="reservatorio"><article class="product-card" aria-labelledby="prod-reservatorio"><div class="product-media"><img src="../img_radcom/reservatorio_comum.webp" alt="Módulo Reservatório RadCom" width="1409" height="2659" loading="lazy"><span class="photo-tag">Foto ilustrativa</span></div><div class="product-body"><div class="chip-row"><span class="chip">LoRa</span><span class="chip">Sonda hidrostática</span></div><h3 id="prod-reservatorio">Reservatório</h3><p>Mede o nível e aciona a bomba. Envia os dados à plataforma por um gateway Wi-Fi ou 4G.</p><span class="conn-badge needs-gateway">Usa gateway para a plataforma</span><button class="btn-usecase" type="button" data-produto="reservatorio" aria-haspopup="dialog">Como usar? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button></div></article></li><li data-categoria="reservatorio"><article class="product-card" aria-labelledby="prod-reservatorio-wifi"><div class="product-media"><img src="../img_radcom/reservatorio_comum.webp" alt="Módulo Reservatório Wi-Fi RadCom" width="1409" height="2659" loading="lazy"></div><div class="product-body"><div class="chip-row"><span class="chip">LoRa</span><span class="chip">Wi-Fi</span><span class="chip">Sonda hidrostática</span></div><h3 id="prod-reservatorio-wifi">Reservatório Wi-Fi</h3><p class="model">RD-2E2S/WI-FI-RS</p><p>Mede o nível e se conecta à plataforma pelo Wi-Fi local, sem gateway.</p><span class="conn-badge ">Conexão integrada à plataforma</span><button class="btn-usecase" type="button" data-produto="reservatorio-wifi" aria-haspopup="dialog">Como usar? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button></div></article></li><li data-categoria="reservatorio"><article class="product-card" aria-labelledby="prod-reservatorio-4g"><div class="product-media"><img src="../img_radcom/reservatorio_4g.webp" alt="Módulo Reservatório 4G RadCom" width="1409" height="2659" loading="lazy"></div><div class="product-body"><div class="chip-row"><span class="chip">LoRa</span><span class="chip">4G</span><span class="chip">Sonda hidrostática</span></div><h3 id="prod-reservatorio-4g">Reservatório 4G</h3><p class="model">RD-2E2S/4G-RS</p><p>Mede o nível e se conecta à plataforma pela rede celular, sem gateway.</p><span class="conn-badge ">Conexão integrada à plataforma</span><button class="btn-usecase" type="button" data-produto="reservatorio-4g" aria-haspopup="dialog">Como usar? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button></div></article></li><li data-categoria="gateway"><article class="product-card" aria-labelledby="prod-gateway-wifi"><div class="product-media"><img src="../img_radcom/gateway_wifi.webp" alt="Módulo Gateway Wi-Fi RadCom" width="1409" height="2659" loading="lazy"></div><div class="product-body"><div class="chip-row"><span class="chip">LoRa</span><span class="chip">Wi-Fi</span></div><h3 id="prod-gateway-wifi">Gateway Wi-Fi</h3><p class="model">RD-GT/WI-FI</p><p>Leva os módulos LoRa à internet pelo Wi-Fi local.</p><span class="conn-badge ">Conexão integrada à plataforma</span><button class="btn-usecase" type="button" data-produto="gateway-wifi" aria-haspopup="dialog">Como usar? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button></div></article></li><li data-categoria="gateway"><article class="product-card" aria-labelledby="prod-gateway-4g"><div class="product-media"><img src="../img_radcom/gateway_4g.webp" alt="Módulo Gateway 4G RadCom" width="1409" height="2659" loading="lazy"></div><div class="product-body"><div class="chip-row"><span class="chip">LoRa</span><span class="chip">4G</span></div><h3 id="prod-gateway-4g">Gateway 4G</h3><p class="model">RD-GT/4G</p><p>Leva os módulos LoRa à internet pela rede celular.</p><span class="conn-badge ">Conexão integrada à plataforma</span><button class="btn-usecase" type="button" data-produto="gateway-4g" aria-haspopup="dialog">Como usar? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button></div></article></li>
+<!-- /PRERENDER --></ul>
       </div>
     </section>
 
@@ -278,7 +327,7 @@
     <section id="sonda" class="section section-muted" aria-labelledby="sonda-title">
       <div class="wrap split">
         <figure class="photo-frame contain">
-          <img src="../img_radcom/sonda_hidrostatica.jpg" alt="Sonda hidrostática de nível" width="447" height="489" loading="lazy" />
+          <img src="../img_radcom/sonda_hidrostatica.webp" alt="Sonda hidrostática de nível" width="447" height="489" loading="lazy" />
         </figure>
         <div>
           <div class="section-head">
@@ -301,9 +350,9 @@
     <section id="quadro" class="section section-light" aria-labelledby="quadro-title">
       <div class="wrap split reverse">
         <figure class="photo-frame">
-          <img src="../img_radcom/painel2.jpg"
+          <img src="../img_radcom/painel2.webp"
             alt="Quadro de comando aberto com módulo RadCom Reservatório, disjuntores, relés e borne da sonda de nível"
-            width="1200" height="1072" loading="lazy" />
+            width="1000" height="893" loading="lazy" />
         </figure>
         <div class="section-head">
           <div>
@@ -319,7 +368,7 @@
     <section id="instalacao" class="section section-dark" aria-labelledby="instalacao-title">
       <div class="wrap split">
         <figure class="photo-frame install-photo">
-          <img src="../img_radcom/instalacao.jpg" alt="Quadro de comando real com módulos RadCom instalados lado a lado"
+          <img src="../img_radcom/instalacao.webp" alt="Quadro de comando real com módulos RadCom instalados lado a lado"
             width="1000" height="1292" loading="lazy" />
           <figcaption>Quadro de comando com módulos RadCom instalados</figcaption>
         </figure>
@@ -372,13 +421,13 @@
         </div>
         <div class="platform-shots">
           <figure class="photo-frame">
-            <img src="../img_radcom/plataforma.jpg" alt="Visão geral da plataforma, com poços e reservatórios no mapa"
-              width="1919" height="1200" loading="lazy" />
+            <img src="../img_radcom/plataforma.webp" alt="Visão geral da plataforma, com poços e reservatórios no mapa"
+              width="1600" height="1001" loading="lazy" />
             <figcaption>Visão geral dos pontos cadastrados</figcaption>
           </figure>
           <figure class="photo-frame">
-            <img src="../img_radcom/plataforma2.jpg" alt="Detalhe de um grupo na plataforma, com reservatórios e bombas"
-              width="1649" height="985" loading="lazy" />
+            <img src="../img_radcom/plataforma2.webp" alt="Detalhe de um grupo na plataforma, com reservatórios e bombas"
+              width="1400" height="836" loading="lazy" />
             <figcaption>Detalhe de um grupo de equipamentos</figcaption>
           </figure>
         </div>
@@ -386,12 +435,12 @@
         <div class="config-grid">
           <div class="shots-pair">
             <figure class="photo-frame">
-              <img src="../img_radcom/web1.jpeg" alt="Página de configuração local: estado das conexões e nível do reservatório"
+              <img src="../img_radcom/web1.webp" alt="Página de configuração local: estado das conexões e nível do reservatório"
                 width="739" height="1531" loading="lazy" />
               <figcaption>Conexões e nível</figcaption>
             </figure>
             <figure class="photo-frame">
-              <img src="../img_radcom/web2.jpeg" alt="Página de configuração local: entradas digitais e estado das saídas"
+              <img src="../img_radcom/web2.webp" alt="Página de configuração local: entradas digitais e estado das saídas"
                 width="739" height="1533" loading="lazy" />
               <figcaption>Entradas e saídas</figcaption>
             </figure>
@@ -493,11 +542,43 @@
     </section>
 
     <!-- ============ CHAMADA FINAL ============
-         Aparece sozinha quando o contato for preenchido em assets/js/config.js -->
-    <section id="contato" class="cta-band" data-contact-slot hidden aria-labelledby="cta-title">
-      <div class="wrap">
-        <h2 id="cta-title">Converse com a RadCom sobre sua aplicação.</h2>
-        <div class="contact-actions" data-contact-list></div>
+         Contatos escritos aqui mesmo (WhatsApp, telefone, e-mail). Se mudarem,
+         troque também em assets/js/config.js e nos links "wa.me" do cabeçalho. -->
+    <section id="contato" class="cta-a" aria-labelledby="cta-title">
+      <svg class="cta-a-rings" viewBox="0 0 400 400" aria-hidden="true">
+        <circle cx="200" cy="200" r="60" /><circle cx="200" cy="200" r="105" />
+        <circle cx="200" cy="200" r="150" /><circle cx="200" cy="200" r="195" />
+      </svg>
+      <div class="wrap cta-a-grid">
+        <div>
+          <p class="kicker on-dark">Fale com a RadCom</p>
+          <h2 id="cta-title">Vamos montar o sistema <em class="hl">do seu reservatório?</em></h2>
+          <p class="lead on-dark">Conte como é a sua instalação e a equipe RadCom indica os módulos certos para medir o
+            nível e comandar a bomba.</p>
+          <div class="btn-row">
+            <a class="btn btn-yellow btn-lg" href="https://wa.me/551733220362?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20a%20RadCom%20Hidro."
+              target="_blank" rel="noopener">
+              <img class="wa-ico" src="../img_radcom/whatsapp.png" alt="" width="24" height="24" /> Chamar no WhatsApp
+            </a>
+            <a class="btn btn-ghost btn-lg" href="tel:+551733220362">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>
+              (17) 3322-0362
+            </a>
+          </div>
+          <p class="cta-a-mail">Prefere e-mail? <a href="mailto:Vendas@radcom.ind.br">Vendas@radcom.ind.br</a></p>
+        </div>
+        <aside class="cta-a-card" aria-labelledby="cta-a-card-title">
+          <h3 id="cta-a-card-title">Para agilizar o atendimento, conte para a gente:</h3>
+          <ul class="checklist">
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span>
+              Quantos reservatórios e poços você quer interligar</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span>
+              A distância aproximada entre eles</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span>
+              Se o local tem Wi-Fi ou sinal de celular (4G)</li>
+          </ul>
+          <p class="note">Não tem essas informações? Sem problema: a gente ajuda a levantar.</p>
+        </aside>
       </div>
     </section>
 
@@ -517,7 +598,7 @@
 
   <!-- Botão flutuante do WhatsApp.
        >>> ADICIONE O NÚMERO em assets/js/config.js (campo whatsapp) <<< -->
-  <a class="whatsapp-float" href="https://wa.me/" target="_blank" rel="noopener" data-whatsapp
+  <a class="whatsapp-float" href="https://wa.me/551733220362" target="_blank" rel="noopener" data-whatsapp
     aria-label="Conversar com a RadCom pelo WhatsApp">
     <img src="../img_radcom/whatsapp.png" alt="" width="512" height="512" />
   </a>

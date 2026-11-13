@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://radcom.ind.br/sitemap.xml

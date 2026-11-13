@@ -1,0 +1,142 @@
+/* =====================================================================
+   PROPOSTAS DE CHAMADA FINAL (página de teste /actioncall/)
+   Cada opção é independente: ao escolher uma, copie o bloco dela
+   (e o de "comum") para assets/css/style.css.
+   ===================================================================== */
+
+/* ---------- comum às três ---------- */
+.proposal-label {
+  background: #fff; border-bottom: 1px solid var(--border);
+  padding: 1.1rem 0; font-size: .92rem; color: var(--fg-muted);
+}
+.proposal-label strong { color: var(--fg); font-size: 1rem; margin-right: .5rem; }
+.proposal-label + section { scroll-margin-top: var(--header-h); }
+.btn-lg { min-height: 3.4rem; padding: .85rem 1.5rem; font-size: 1.02rem; }
+.btn img.wa-ico { width: 1.5rem; height: 1.5rem; border-radius: 50%; }
+.btn-wa { background: #25d366; color: #0b3d1f; }
+.btn-wa:hover { background: #3ee07a; }
+
+/* =====================================================================
+   OPÇÃO A — Faixa escura com checklist
+   ===================================================================== */
+.cta-a {
+  position: relative; overflow: hidden; isolation: isolate;
+  background: radial-gradient(120% 140% at 0% 0%, var(--blue) 0%, var(--navy-deep) 55%);
+  color: var(--on-dark); padding: 4.5rem 0;
+}
+.cta-a-rings {
+  position: absolute; z-index: -1; right: -8rem; top: 50%; width: 34rem; height: 34rem;
+  transform: translateY(-50%); opacity: .5; pointer-events: none;
+}
+.cta-a-rings circle { fill: none; stroke: rgba(255, 255, 255, .12); stroke-width: 1.2; }
+.cta-a-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 3rem; align-items: center; }
+.cta-a h2 { font-size: clamp(1.8rem, 1.2rem + 2.4vw, 2.8rem); font-weight: 800; letter-spacing: -.02em; margin-top: .8rem; }
+.cta-a .btn-row { margin-top: 1.8rem; }
+.cta-a-mail { margin: 1.1rem 0 0; color: var(--on-dark-muted); font-size: .95rem; }
+.cta-a-mail a { color: #fff; font-weight: 700; text-underline-offset: 3px; }
+.cta-a-mail a:hover { color: var(--yellow); }
+.cta-a-card {
+  background: rgba(255, 255, 255, .06); border: 1px solid var(--border-dark);
+  border-radius: var(--radius); padding: 1.75rem; backdrop-filter: blur(4px);
+}
+.cta-a-card h3 { font-size: 1.05rem; font-weight: 700; color: #fff; }
+.checklist { list-style: none; margin: 1.1rem 0 0; padding: 0; display: grid; gap: .85rem; }
+.checklist li { display: grid; grid-template-columns: 1.6rem 1fr; gap: .7rem; align-items: start; line-height: 1.45; }
+.checklist .tick {
+  width: 1.6rem; height: 1.6rem; border-radius: 50%; display: grid; place-items: center;
+  background: var(--yellow); color: var(--navy-deep);
+}
+.checklist .tick svg { width: .95rem; height: .95rem; }
+.cta-a-card .note { margin: 1.2rem 0 0; font-size: .85rem; color: var(--on-dark-muted); }
+@media (max-width: 860px) {
+  .cta-a { padding: 3.25rem 0; }
+  .cta-a-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .cta-a .btn-row .btn { flex: 1 1 100%; }
+}
+
+/* =====================================================================
+   OPÇÃO B — Cartão com foto e canais de contato
+   ===================================================================== */
+.cta-b { background: var(--surface-muted); padding: 4.5rem 0; }
+.cta-b-card {
+  display: grid; grid-template-columns: .9fr 1.1fr; overflow: hidden;
+  background: var(--surface); border-radius: calc(var(--radius) * 1.5);
+  box-shadow: 0 30px 60px -35px rgba(30, 32, 53, .55);
+}
+.cta-b-photo { position: relative; min-height: 22rem; background: var(--navy-deep); }
+.cta-b-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+.cta-b-photo::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(30, 32, 53, .85));
+}
+.cta-b-place {
+  position: absolute; z-index: 1; left: 1.4rem; bottom: 1.3rem; right: 1.4rem;
+  color: #fff; font-weight: 700; display: flex; align-items: center; gap: .55rem;
+}
+.cta-b-place svg { width: 1.2rem; height: 1.2rem; color: var(--yellow); flex: none; }
+.cta-b-body { padding: 2.75rem; }
+.cta-b-body h2 { font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem); font-weight: 800; letter-spacing: -.015em; margin-top: .7rem; }
+.cta-b-body .lead { font-size: 1rem; }
+.channels { list-style: none; margin: 1.75rem 0 0; padding: 0; display: grid; gap: .75rem; }
+.channel {
+  display: grid; grid-template-columns: 2.9rem 1fr auto; gap: 1rem; align-items: center;
+  padding: .85rem 1.1rem; border: 1.5px solid var(--border); border-radius: var(--radius);
+  text-decoration: none; color: var(--fg); background: var(--surface);
+  transition: border-color .15s, transform .15s, box-shadow .15s;
+}
+.channel:hover { border-color: var(--blue); transform: translateY(-1px); box-shadow: var(--shadow); }
+.channel-ico {
+  width: 2.9rem; height: 2.9rem; border-radius: .6rem; display: grid; place-items: center;
+  background: var(--surface-muted); color: var(--blue);
+}
+.channel-ico svg { width: 1.35rem; height: 1.35rem; }
+.channel-ico img { width: 2rem; height: 2rem; border-radius: 50%; }
+.channel small { display: block; font-size: .78rem; font-weight: 600; color: var(--fg-muted); text-transform: uppercase; letter-spacing: .08em; }
+.channel span { display: block; font-weight: 700; font-size: 1.02rem; overflow-wrap: anywhere; }
+.channel .go { color: var(--fg-muted); }
+.channel .go svg { width: 1.2rem; height: 1.2rem; }
+.channel.is-main { border-color: #25d366; background: #f1fcf5; }
+.channel.is-main .channel-ico { background: #dcf8e6; }
+@media (max-width: 860px) {
+  .cta-b { padding: 3rem 0; }
+  .cta-b-card { grid-template-columns: 1fr; }
+  .cta-b-photo { min-height: 13rem; }
+  .cta-b-body { padding: 1.75rem 1.25rem; }
+}
+@media (max-width: 400px) {
+  .channel { grid-template-columns: 2.5rem 1fr; padding: .8rem .9rem; gap: .8rem; }
+  .channel-ico { width: 2.5rem; height: 2.5rem; }
+  .channel .go { display: none; }
+}
+
+/* =====================================================================
+   OPÇÃO C — Faixa amarela com o passo a passo
+   ===================================================================== */
+.cta-c { background: var(--yellow); color: var(--navy-deep); padding: 4.25rem 0; }
+.cta-c-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1.25rem 2rem; }
+.cta-c .kicker { color: var(--navy); }
+.cta-c h2 { font-size: clamp(1.7rem, 1.2rem + 2vw, 2.5rem); font-weight: 800; letter-spacing: -.02em; margin-top: .7rem; max-width: 34rem; }
+.steps-cta { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; counter-reset: passo; }
+.steps-cta li {
+  position: relative; background: rgba(255, 255, 255, .55); border: 1px solid rgba(30, 32, 53, .12);
+  border-radius: var(--radius); padding: 1.4rem 1.3rem 1.3rem;
+}
+.steps-cta li::before {
+  counter-increment: passo; content: counter(passo);
+  display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border-radius: 50%;
+  background: var(--navy-deep); color: var(--yellow); font-weight: 800; margin-bottom: .9rem;
+}
+.steps-cta h3 { font-size: 1.05rem; font-weight: 800; }
+.steps-cta p { margin: .4rem 0 0; font-size: .93rem; color: #3b3e58; }
+.cta-c-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem 1.6rem; margin-top: 2rem; }
+.cta-c-actions .btn-dark { background: var(--navy-deep); }
+.cta-c-actions .btn-dark:hover { background: var(--blue); }
+.cta-c-alt { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; font-weight: 700; }
+.cta-c-alt a { color: var(--navy-deep); text-underline-offset: 3px; display: inline-flex; align-items: center; gap: .4rem; }
+.cta-c-alt a svg { width: 1.05rem; height: 1.05rem; }
+.cta-c :focus-visible { outline-color: var(--navy-deep); }
+@media (max-width: 860px) {
+  .cta-c { padding: 3.25rem 0; }
+  .steps-cta { grid-template-columns: 1fr; }
+  .cta-c-actions .btn { flex: 1 1 100%; }
+}
